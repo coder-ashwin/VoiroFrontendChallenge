@@ -1,0 +1,45 @@
+<div class="bg" (click)="close()"></div>
+
+<div class="box" (click)="$event.stopPropagation()">
+    <header>
+        <h3>Change Organization Image <a [hidden]="!imageShow" (click)="reUpload(fileInput)">Re-upload Image</a></h3>
+        <div (click)="cancel(fileInput)">
+            <span></span>
+        </div>
+    </header>
+    <main>
+        <div dragDrop class="drop" (onFileDropped)="fileChangeEvent($event)" [hidden]="imageShow">
+            <div>
+                <img src="./../../assets/upload_cloud.png" alt="upload" />
+            </div>
+            <div>
+                <p>
+                    <a (click)="fileInput.click()">Upload file</a> or just drag and drop image here
+                    <br />
+                    <span>Supported formats: jpeg, png, tiff</span>
+                </p>
+                
+            </div>
+            <br />
+            <input #fileInput type="file" (change)="fileChangeEvent($event)" accept="image/png, image/jpeg, image/tiff" hidden />
+        </div>
+        <div [hidden]="!imageShow">
+            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="1 / 1" [resizeToWidth]="256"
+                [cropperMinWidth]="128" [onlyScaleDown]="true" [roundCropper]="false" [canvasRotation]="canvasRotation"
+                [transform]="transform" [alignImage]="'center'" [style.display]="showCropper ? null : 'none'" format="png"
+                (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady($event)"
+                (loadImageFailed)="loadImageFailed()"></image-cropper>
+        </div>
+    </main>
+    <footer>
+        <button class="save" (click)="save(fileInput)" [style.cursor]="!imageShow ? 'not-allowed' : 'pointer'">Save Changes</button>
+        <button class="cancel" (click)="cancel(fileInput)">Cancel</button>
+        <div [hidden]="!imageShow">
+            <figure>
+                <img [src]="croppedImage" alt="preview">
+            </figure>
+            <span>Preview</span>
+        </div>
+    </footer>
+</div>

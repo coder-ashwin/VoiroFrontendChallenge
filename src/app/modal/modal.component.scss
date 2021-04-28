@@ -1,0 +1,185 @@
+div.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+div.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    border-radius: 0.5em;
+    background-color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+
+    header {
+        position: relative;
+        display: block;
+        width: calc(100% - 60px);
+        padding: 5px 30px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+        h3 {
+            a {
+                font-size: 14px;
+                font-weight: 500;
+                margin-left: 10px;
+            }
+        }
+
+        div{
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            cursor: pointer;
+
+            span {
+                transform: rotate(45deg);
+                width: 20px;
+                height: 20px;
+                background-color: rgba(0, 0, 0, 0.35);
+                display: block;
+                clip-path: polygon(0 45%, 45% 45%, 45% 0, 55% 0, 55% 45%, 100% 45%, 100% 55%, 55% 55%, 55% 100%, 45% 100%, 45% 55%, 0 55%);
+            }
+        }
+    }
+
+    main {
+        padding: 25px 10px;
+        
+        image-cropper {
+            height: 40vh;
+        }
+        
+        .drop {
+            margin: 15px auto 15px;
+            width: 85%;
+            text-align: center;
+            border: 2px dashed rgba(0, 0, 0, 0.2);
+            border-radius: 0.5em;
+            padding: 75px 40px;
+
+            div {
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                text-align: left;
+
+                img {
+                    width: 25px;
+                    position: absolute;
+                    top: 55%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 0.8;
+                }
+
+                p {
+                    font-size: 16px;
+
+                    span {
+                        font-size: 12px;
+                        color: rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+
+            div:first-child {
+                width: 50px;
+                height: 50px;
+                margin-right: 25px;
+                border-radius: 100%;
+                background-color: #E2F1FE;
+            }
+        }
+    }
+
+    footer {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        width: calc(100% - 60px);
+        padding: 20px 30px;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+        div {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+
+            figure {
+                width: 60px;
+                height: 60px;
+                border: 1px solid black;
+                border-radius: 100%;
+                overflow: hidden;
+                display: inline-block;
+                margin: 0;
+
+                img {
+                    width: 60px;
+                }
+            }
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: 125%;
+                transform: translateY(-50%);
+            }
+        }
+
+        button {
+            margin-left: 30px;
+        }
+
+        button.save {
+            font-weight: 400;
+            text-align: center;
+            color: #fff;
+            background-color: var(--pri);
+            border-color: var(--pri);
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+        }
+
+        button.save:hover {
+            background-color: #0069d9;
+            border-color: #0069d9;
+        }
+
+        button.cancel {
+            line-height: 1.5;
+            padding: 0.375rem 0.75rem;
+            text-align: center;
+            font-weight: 400;
+            font-size: 1rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: var(--pri);
+            cursor: pointer;
+        }
+    }
+}
+
+a {
+    color: var(--pri);
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+a:hover {
+    border-bottom-color: var(--pri);
+}

@@ -1,0 +1,11 @@
+<h2>Voiro Frontend Challenge</h2>
+
+<div class="overall">
+    <div>
+        <img [src]="src" [style.border]="src ? '1px solid black' : 'none'" />
+        <p>{{ name | fileName }}</p>
+    </div>
+    <button (click)="openModal()" class="btn-modal">Change Organization Image</button>
+</div>
+
+<modal [@fade]="modalShow" (showChange)="closeModal()" (file)="file($event)"></modal>
